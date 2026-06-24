@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>快速了解 · 爱游戏 · 实用指南与访问提醒</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fafaf9;
+      color: #1e1e1e;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 2.4rem 1.6rem 4rem;
+    }
+
+    /* hero 简明引导 */
+    .hero-slim {
+      margin-bottom: 3.2rem;
+    }
+
+    .hero-slim h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      color: #0f0f0f;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-slim .subhead {
+      font-size: 1.1rem;
+      color: #5a5a5a;
+      border-left: 3px solid #b0b0b0;
+      padding-left: 1rem;
+      margin-top: 0.4rem;
+    }
+
+    /* 信息卡片网格 */
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin: 2.8rem 0 3rem;
+    }
+
+    .info-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.6rem 1.8rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.2s;
+    }
+
+    .info-card:hover {
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.02);
+    }
+
+    .info-card .card-label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #a0a0a0;
+      margin-bottom: 0.35rem;
+    }
+
+    .info-card h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: #141414;
+    }
+
+    .info-card p {
+      font-size: 0.98rem;
+      color: #3d3d3d;
+      margin-bottom: 0.4rem;
+    }
+
+    .info-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.8rem 0 0;
+    }
+
+    .info-card li {
+      font-size: 0.95rem;
+      color: #3d3d3d;
+      padding: 0.35rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .info-card li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: #b5b5b5;
+    }
+
+    /* 自然链接段落 */
+    .link-paragraph {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.6rem 1.8rem;
+      margin: 2.2rem 0;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 4px 10px rgba(0, 0, 0, 0.01);
+    }
+
+    .link-paragraph p {
+      font-size: 1rem;
+      color: #2c2c2c;
+      margin-bottom: 0.7rem;
+    }
+
+    .link-paragraph a {
+      color: #1f3f5f;
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+      text-decoration-thickness: 0.05em;
+      font-weight: 500;
+      transition: color 0.2s, text-decoration-color 0.2s;
+    }
+
+    .link-paragraph a:hover {
+      color: #0a2338;
+      text-decoration-color: #0a2338;
+    }
+
+    .link-paragraph .meta-note {
+      display: block;
+      font-size: 0.82rem;
+      color: #838383;
+      margin-top: 1.2rem;
+      border-top: 1px solid #ededed;
+      padding-top: 1rem;
+    }
+
+    /* 小提示卡片 */
+    .tip-card {
+      background: #f3f2ef;
+      border-radius: 20px;
+      padding: 1.4rem 1.8rem;
+      margin: 2.2rem 0;
+    }
+
+    .tip-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #1e1e1e;
+    }
+
+    .tip-card p,
+    .tip-card li {
+      font-size: 0.93rem;
+      color: #404040;
+    }
+
+    .tip-card ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 0.6rem;
+    }
+
+    .tip-card li {
+      padding: 0.3rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .tip-card li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: #7f7f7f;
+    }
+
+    /* faq 摘要 */
+    .faq-mini {
+      margin: 2.8rem 0 1.2rem;
+    }
+
+    .faq-mini h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 1rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e4e4e2;
+      padding: 0.75rem 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: #1d1d1d;
+    }
+
+    .faq-a {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.2rem;
+    }
+
+    .footer-note {
+      margin-top: 3.6rem;
+      font-size: 0.75rem;
+      color: #999;
+      text-align: center;
+      border-top: 1px solid #eaeae7;
+      padding-top: 2rem;
+    }
+
+    @media (max-width: 480px) {
+      .page-wrap {
+        padding: 1.8rem 1.2rem 3rem;
+      }
+
+      .hero-slim h1 {
+        font-size: 1.8rem;
+      }
+
+      .info-card,
+      .link-paragraph,
+      .tip-card {
+        padding: 1.2rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <!-- hero -->
+    <div class="hero-slim">
+      <h1>简明指南·访问提醒</h1>
+      <div class="subhead">以平常心开始，了解平台的特点与使用节奏</div>
+    </div>
+
+    <!-- 用途卡片 -->
+    <div class="card-grid">
+      <div class="info-card">
+        <span class="card-label">用途场景</span>
+        <h2>日常运动与娱乐备选</h2>
+        <p>平台聚合了多种轻量互动内容，适合在零散时间里随手打开。无论是短时调节，还是固定时段放松，都能找到对应的参与方式。</p>
+        <ul>
+          <li>即开即用，无需复杂注册流程</li>
+          <li>内容更新具有周期性，每次都有新体验</li>
+          <li>界面反馈直接，操作门槛低</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <span class="card-label">适合人群</span>
+        <h2>偏好灵活与简洁的用户</h2>
+        <p>如果你习惯快速进入状态，不喜欢冗长教程或过量信息干扰，那么这类轻结构页面会更合心意。尤其适合以下三种情况：</p>
+        <ul>
+          <li>希望用碎片时间获得短暂参与感</li>
+          <li>对复杂社交或重度交互保持距离</li>
+          <li>在不同设备间切换时仍能保持统一体验</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 自然链接段落 -->
+    <div class="link-paragraph">
+      <p>如果你对上述场景产生共鸣，或是想亲自确认其风格是否契合自己，可以选择直接前往 <a href="https://home-sport-igame.com">爱游戏</a> 浏览。建议第一次访问时放慢节奏，先观察首页的功能分区与引导，不必急于操作。很多用户反馈，先花两三分钟熟悉布局，后续使用会更顺手。</p>
+      <p>另外，平台偶尔会调整部分模块的入口位置，若发现某功能不在原先位置，可通过页面顶部的导航或全局搜索快速定位。保持平常心，把它当作一个安静、不赶时间的去处。</p>
+      <span class="meta-note">基于多数访问者的反馈整理 · 每次打开都是一次新的探索</span>
+    </div>
+
+    <!-- 访问提醒卡片 -->
+    <div class="tip-card">
+      <h3>访问小提醒</h3>
+      <ul>
+        <li>建议使用最新版浏览器，兼容性更稳定，页面样式与动画不会出现偏移</li>
+        <li>网络环境波动时，部分卡片加载可能稍慢，稍等几秒即可完整显示</li>
+        <li>如果遇到显示异常，可尝试清除缓存或更换设备测试，大多数情况可自行恢复</li>
+      </ul>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+      <h3>常见疑问摘要</h3>
+      <div class="faq-item">
+        <div class="faq-q">是否需要注册或登录？</div>
+        <div class="faq-a">基础浏览与部分功能可以无需注册直接使用；少数个性化设置或记录功能建议注册，但非强制。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">内容多久更新一次？</div>
+        <div class="faq-a">通常每周会有小幅度内容替换或新增，重大调整会提前在页面内说明。具体以实际显示为准。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">移动端与电脑端体验差异大吗？</div>
+        <div class="faq-a">两者布局与功能基本一致，移动端针对触控做了间距优化，整体差异不大，可自由切换。</div>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      信息仅供参考 · 页面内容基于多数访问场景整理
+    </div>
+
+  </div>
+</body>
+</html>
