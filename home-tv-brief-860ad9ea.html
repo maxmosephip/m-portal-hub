@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 信息卡片 | 知识型入口</title>
+  <style>
+    /* 极简留白 · 窄正文 · 清晰层级 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f8fafb;
+      color: #1e2b3c;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      padding: 2.4rem 1.2rem;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
+
+    .page {
+      max-width: 760px;
+      width: 100%;
+    }
+
+    /* 标题层级 */
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.2rem;
+      color: #0b1a2a;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #546e7a;
+      margin-bottom: 2.8rem;
+      border-bottom: 1px solid #dce5eb;
+      padding-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin: 2.4rem 0 1rem 0;
+      color: #1a3144;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 1.2rem;
+      background: #7fa3b8;
+      border-radius: 2px;
+      margin-right: 0.2rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #1f3a4e;
+      margin: 1.2rem 0 0.4rem 0;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: #2b4053;
+    }
+
+    a {
+      color: #1f6390;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    a:hover {
+      border-bottom-color: #1f6390;
+      color: #0b3a57;
+    }
+
+    /* 卡片体系 — 信息卡片式 */
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin: 1.8rem 0 2rem 0;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.6rem 1.8rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.04);
+      border: 1px solid #eef3f7;
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.04);
+      transform: translateY(-2px);
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card em {
+      font-style: normal;
+      background: #edf3f9;
+      padding: 0.1rem 0.4rem;
+      border-radius: 6px;
+      font-size: 0.9em;
+      color: #1f4a64;
+    }
+
+    .tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.8rem;
+      margin-top: 0.8rem;
+    }
+
+    .tag {
+      background: #eef4f9;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      color: #1f4d6b;
+      border: 1px solid #dbe6ef;
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border-left: 3px solid #b6cfde;
+      padding: 0.8rem 1.2rem;
+      margin: 0.8rem 0;
+      border-radius: 0 12px 12px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    .faq-item strong {
+      color: #1c3c52;
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item p {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+
+    .link-sentence {
+      background: #f2f6fa;
+      padding: 1rem 1.4rem;
+      border-radius: 40px;
+      margin: 2rem 0 1.6rem 0;
+      font-size: 0.98rem;
+      border: 1px solid #dde8f0;
+      text-align: center;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dee9f0;
+      margin: 2.4rem 0 1.6rem 0;
+    }
+
+    .footer-note {
+      color: #6b8599;
+      font-size: 0.85rem;
+      margin-top: 2.8rem;
+      border-top: 1px solid #e3edf4;
+      padding-top: 1.8rem;
+      text-align: center;
+    }
+
+    /* 响应式 */
+    @media (max-width: 520px) {
+      body {
+        padding: 1.6rem 0.8rem;
+      }
+      h1 {
+        font-size: 1.7rem;
+      }
+      .card {
+        padding: 1.2rem 1.2rem;
+      }
+      .link-sentence {
+        border-radius: 28px;
+        padding: 0.8rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero 主视觉：简洁标题 + 引言 -->
+  <h1>爱游戏 · 主题索引</h1>
+  <div class="subhead">从关键词到场景 · 信息卡片式导览</div>
+
+  <p style="font-size: 1.05rem;">
+    当我们将「爱游戏」视作一种持续的文化行为，它便超越了简单的娱乐标签。  
+    游戏作为数字时代的叙事媒介与交互实验场，其内核涉及机制设计、情感节奏与社群共建。  
+    以下卡片从不同维度梳理了围绕「爱游戏」可以展开的观察线索。
+  </p>
+
+  <!-- 用途卡片：三个信息块 -->
+  <h2>用途卡片 · 三个切面</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>◈ 认知与策略</h3>
+      <p>许多类型的游戏要求玩家在有限信息下做出判断，并承担后果。这种“安全失败”的环境，恰好是检验决策模型与应变能力的低风险场域。从回合制策略到资源管理，<em>爱游戏</em>的人往往也享受复盘与优化过程。</p>
+      <div class="tag-group">
+        <span class="tag">决策训练</span>
+        <span class="tag">模式识别</span>
+        <span class="tag">系统思维</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>◈ 叙事与共鸣</h3>
+      <p>角色扮演与冒险类作品经常通过分支剧情、环境碎片和环境叙事来传递主题。玩家在主动探索中建立情感投射，这种沉浸式参与与传统线性阅读体验截然不同。对故事有偏好的受众，往往在<em>爱游戏</em>的语境里寻找更个人化的解读。</p>
+      <div class="tag-group">
+        <span class="tag">环境叙事</span>
+        <span class="tag">道德困境</span>
+        <span class="tag">角色弧光</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>◈ 协作与公共空间</h3>
+      <p>多人合作或对抗场景创造了临时的社会契约。无论是工会、战队还是短期野队，沟通礼仪、分工与信任都在数十秒内建立。对许多人而言，<em>爱游戏</em>也是爱某种共同目标下的默契与即兴协调。</p>
+      <div class="tag-group">
+        <span class="tag">临时社群</span>
+        <span class="tag">非语言沟通</span>
+        <span class="tag">合作解谜</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 适合人群段落（自然承接上方卡片） -->
+  <h2>适合哪些人深入？</h2>
+  <p>如果你对“规则如何塑造行为”感兴趣，或者曾在某个游戏关卡后反复琢磨自己的操作序列，那么你已经站在了分析的入口。同样，喜欢拆解故事伏笔、观察玩家群体文化的朋友，也会在围绕<a href="https://home-tv-igame.com">爱游戏</a>的内容里找到参照。这里没有门槛，只有不同角度的切入点。</p>
+  <p>从休闲解谜到硬核模拟，从个人体验到公共讨论，适合人群其实并不局限于某一类。只要你愿意把游戏视作一种值得认真对待的文化实践，便值得花上半小时浏览相关的分析与记录。</p>
+
+  <!-- 自然链接段落（嵌入链接） -->
+  <div class="link-sentence">
+    🧩 若想查阅更多关于机制拆解、叙事分析或玩家生态的记录，可以直接访问 <a href="https://home-tv-igame.com">爱游戏</a> 的主题页面。那里汇集了不同视角的短文与索引。
+  </div>
+
+  <!-- FAQ 摘要（不是完整faq，而是摘要风格） -->
+  <h2>常见疑问摘要</h2>
+  <div class="faq-item">
+    <strong>“爱游戏”是指某个平台还是泛指？</strong>
+    <p>本文采用其泛文化含义：指对游戏作为一种媒介的持续兴趣与思考。具体站点可参考上述链接。</p>
+  </div>
+  <div class="faq-item">
+    <strong>这些卡片的内容是否有更新依据？</strong>
+    <p>卡片中的分类来自近年游戏研究中的常见讨论维度，并参考了玩家社群的日常语料，保持开放性。</p>
+  </div>
+  <div class="faq-item">
+    <strong>是否包含商业或推广内容？</strong>
+    <p>本页面仅提供信息梳理，不包含任何商业植入或诱导性表述。所有链接均指向自然内容入口。</p>
+  </div>
+
+  <hr>
+  <p style="font-size: 0.95rem; color: #3a5d75;">
+    延伸视角：如果你对游戏中的“失败设计”或“节奏控制”感兴趣，不妨记录下自己最近一次放下手柄的原因——那往往也是理解的起点。
+  </p>
+
+  <!-- 结尾提示（轻量） -->
+  <div class="footer-note">
+    信息卡片 · 知识型入口 &nbsp;|&nbsp; 极简留白 · 版本 2406
+  </div>
+
+</div>
+</body>
+</html>
